@@ -10,8 +10,7 @@ mongoose.connection('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true}
 
 require('./src/models');
 
-const Product = mongoose.model('Product');
-
 app.use('/api', require('.src/routes'));
+app.use(express.json());
 
 app.listen(3001);   
