@@ -12,16 +12,6 @@ require('./src/models');
 
 const Product = mongoose.model('Product');
 
+app.use('/api', require('.src/routes'));
+
 app.listen(3001);   
-
-app.get('/', (req, res) => {
-    Product.create({
-        title: 'Empresa',
-        description: 'Adicao 1',
-        url: 'http://www.github.com.br'
-    });
-    
-    return res.send('Hello World');
-});
-
-
