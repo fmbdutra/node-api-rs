@@ -1,5 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
- const app = express();
+//Iniciando app
+const app = express();
 
- app.listen(3001);
+//Inicializando banco
+mongoose.connection('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true});
+
+app.listen(3001);
+
+app.get('/', (req, res) => {
+res.send('Hello World');
+});
+
+
