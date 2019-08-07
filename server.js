@@ -10,11 +10,13 @@ app.use(express.json());
 app.use(cors());
 
 //Inicializando banco
-mongoose.connection('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/nodeapi",  
+    {useNewUrlParser: true}
+);
 
-require('./src/models');
+requireDir('./src/models');
 
-app.use('/api', require('.src/routes'));
+//Rotas
+app.use('/api', require("./src/routes"));
 
-
-app.listen(3001);   
+app.listen(3001);  
